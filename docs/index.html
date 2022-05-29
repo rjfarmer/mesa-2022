@@ -6,7 +6,7 @@
 <!-- 2021-08-09 Mon 07:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MESA Summer School 2021: Lecture 1</title>
+<title>SMNA 2022: Introduction to MESA</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Josiah Schwab and Will Schultz" />
 <style type="text/css">
@@ -247,7 +247,7 @@
 </head>
 <body>
 <div id="content">
-<h1 class="title">MESA Summer School 2021: Lecture 1</h1>
+  <h1 class="title">SMNA 2022: Introduction to MESA</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -310,10 +310,11 @@
 <h2 id="org2102339">Part 0: Overview</h2>
 <div class="outline-text-2" id="text-org2102339">
 <p>
-This guide was written as part of the 2021 MESA summer school.  It is
+This guide was orignally written as part of the 2021 MESA summer school, 
+and updated for the 2022 SMNA summer school.  It is
 an introduction to MESA, with a particular focus on learning how to
 navigate the MESA source code and its documentation and using
-<code>run_star_extras.f90</code>.  It assumes you are using version r15140 of
+<code>run_star_extras.f90</code>.  It assumes you are using version r21.12.1 of
 MESA.
 </p>
 
@@ -363,7 +364,7 @@ Finally, some modules like <code>star</code> (also <code>astero</code> and <code
 <h3 id="org12560f3">Part 1b: The documentation</h3>
 <div class="outline-text-3" id="text-org12560f3">
 <p>
-MESA now has documentation that lives in the source tree (<code>$MESA_DIR/docs</code>) and is version controlled along with the rest of MESA.  This documentation is hosted online by ReadTheDocs and is available at <a href="https://docs.mesastar.org/">https://docs.mesastar.org/</a>.  Bookmark this site and spend some time getting familiar with what it contains!  For example, there is <a href="https://docs.mesastar.org/en/r15140/modules.html#constants-const">a page summarizing the MESA modules</a>.
+MESA now has documentation that lives in the source tree (<code>$MESA_DIR/docs</code>) and is version controlled along with the rest of MESA.  This documentation is hosted online by ReadTheDocs and is available at <a href="https://docs.mesastar.org/">https://docs.mesastar.org/</a>.  Bookmark this site and spend some time getting familiar with what it contains!  For example, there is <a href="https://docs.mesastar.org/en/release-r21.12.1/modules.html#constants-const">a page summarizing the MESA modules</a>.
 </p>
 
 <p>
@@ -371,7 +372,7 @@ This documentation is a work in progress, but should already be useful.  It will
 </p>
 
 <p>
-The documentation is versioned.  Right now, there are only two versions: r15140 (the current release) and latest (the development version).  In the future, when multiple releases exist, you will want to be careful to use the documentation that matches the MESA version you're using.  Controls on the lower left of the page (collapsed by default) allow you to switch versions.
+The documentation is versioned, thus be careful with which version of the docs you looking at. By default <a href="https://docs.mesastar.org/">https://docs.mesastar.org/</a> points to the newest version of MESA, but we are using r21.12.1. You will want to be careful to use the documentation that matches the MESA version you're using.  Controls on the lower left of the page (collapsed by default) allow you to switch versions.
 </p>
 
 
@@ -394,7 +395,7 @@ Tools like <code>grep</code> &#x2014; or more advanced variants like <a href="ht
 </p>
 
 <p>
-For example, if you execute the command <code>grep -rI Josiah *</code> while in <code>$MESA_DIR</code> you can see every occurrence of my name in the source code.  (The -r argument means recursive; the -I argument excludes binary files.)
+For example, if you execute the command <code>grep -rI rob *</code> while in <code>$MESA_DIR</code> you can see every occurrence of my name in the source code.  (The -r argument means recursive; the -I argument excludes binary files.)
 </p>
 </div>
 </div>
@@ -469,8 +470,8 @@ options for a different aspect of MESA.
 </p>
 <dl class="org-dl">
 <dt>star_job</dt><dd>options for the program that evolves the star</dd>
-<dt>eos</dt><dd>options for the MESA eos module (new!)</dd>
-<dt>kap</dt><dd>options for the MESA kap module (new!)</dd>
+<dt>eos</dt><dd>options for the MESA eos module</dd>
+<dt>kap</dt><dd>options for the MESA kap module</dd>
 <dt>controls</dt><dd>options for the MESA star module</dd>
 <dt>pgstar</dt><dd>options for on-screen plotting</dd>
 </dl>
@@ -519,19 +520,19 @@ You can directly read these defaults files as plain text.  Alternatively, they a
 </p>
 
 <p>
-The individual module defaults appear under <a href="https://docs.mesastar.org/en/r15140/modules.html#constants-const">Module Documentation</a>
+The individual module defaults appear under <a href="https://docs.mesastar.org/en/release-r21.12.1/modules.html#constants-const">Module Documentation</a>
 </p>
 <ul class="org-ul">
-<li><a href="https://docs.mesastar.org/en/r15140/eos/defaults.html"><code>$MESA_DIR/eos/defaults/eos.defaults</code></a></li>
-<li><a href="https://docs.mesastar.org/en/r15140/kap/defaults.html"><code>$MESA_DIR/kap/defaults/kap.defaults</code></a></li>
+<li><a href="https://docs.mesastar.org/en/release-r21.12.1/eos/defaults.html"><code>$MESA_DIR/eos/defaults/eos.defaults</code></a></li>
+<li><a href="https://docs.mesastar.org/en/release-r21.12.1/kap/defaults.html"><code>$MESA_DIR/kap/defaults/kap.defaults</code></a></li>
 </ul>
 <p>
-while the star (and also binary and astero) defaults appear under <a href="https://docs.mesastar.org/en/r15140/reference.html">Reference</a>
+while the star (and also binary and astero) defaults appear under <a href="https://docs.mesastar.org/en/release-r21.12.1/reference.html">Reference</a>
 </p>
 <ul class="org-ul">
-<li><a href="https://docs.mesastar.org/en/r15140/reference/star_job.html"><code>$MESA_DIR/star/defaults/star_job.defaults</code></a></li>
-<li><a href="https://docs.mesastar.org/en/r15140/reference/controls.html"><code>$MESA_DIR/star/defaults/controls.defaults</code></a></li>
-<li><a href="https://docs.mesastar.org/en/r15140/reference/pgstar.html"><code>$MESA_DIR/star/defaults/pgstar.defaults</code></a></li>
+<li><a href="https://docs.mesastar.org/en/release-r21.12.1/reference/star_job.html"><code>$MESA_DIR/star/defaults/star_job.defaults</code></a></li>
+<li><a href="https://docs.mesastar.org/en/release-r21.12.1/reference/controls.html"><code>$MESA_DIR/star/defaults/controls.defaults</code></a></li>
+<li><a href="https://docs.mesastar.org/en/release-r21.12.1/reference/pgstar.html"><code>$MESA_DIR/star/defaults/pgstar.defaults</code></a></li>
 </ul>
 <p>
 They are roughly sorted into groups of related options.  When you're
@@ -1015,6 +1016,7 @@ subroutines in that file (that is, contained within the
   <span style="color: #00ffff;">call</span> <span style="color: #87cefa;">star_ptr</span>(id, s, ierr)
   <span style="color: #00ffff;">if</span> (ierr /= 0) <span style="color: #00ffff;">return</span>
   s% extra_heat(:) = s% extra_power_source
+  ! note that extra_heat is type(auto_diff_real_star_order1) so includes partials.
   <span style="color: #00ffff;">return</span>
 <span style="color: #00ffff;">end subroutine</span> <span style="color: #87cefa;">default_other_energy</span>
 </pre>
@@ -1024,7 +1026,7 @@ subroutines in that file (that is, contained within the
 The variable <code>s% extra_heat</code> is an additional specific (per mass)
 heating rate that will be included.  Note that this routine already
 does something; <code>default_other_energy</code> is responsible for making the
-<a href="http://mesa.sourceforge.net/controls_defaults.html#extra_power_source"><code>extra_power_source</code></a> control work.  Go ahead and remove that bit, the
+<a href="https://docs.mesastar.org/en/release-r21.12.1/reference/controls.html#extra-power-source"><code>extra_power_source</code></a> control work.  Go ahead and remove that bit, the
 existing example, and rename it to <code>lecture1_other_energy</code>.
 </p>
 
@@ -1038,6 +1040,9 @@ the outermost zone is at k=1 and the innermost zone is at k=s% nz.
 Arrays may also have a size in excess of nz, but only elements 1
 through nz are meaningful.
 </p>
+
+<p> There is however a caveat with the <code>s% extra_heat(:)</code> array, this is not a normal array of numbers but an autodiff type. <a href="https://docs.mesastar.org/en/release-r21.12.1/modules.html#automatic-differentiation-auto-diff">auto_diff</a> is MESA's way of automatically keeping track of derivatives of quantities. For this example you just need to know that if you want to set a value you can do  <code>s% extra_heat(1) = 1</code> but to access the value (to use eleswhere or to print it) then you need to use <code>x = s% extra_heat(1)%val</code>.</p>
+
 
 <div class="org-src-container">
 <pre class="src src-f90"><span style="color: #00ffff;">subroutine</span> <span style="color: #87cefa;">lecture1_other_energy</span>(id, ierr)
@@ -1127,7 +1132,7 @@ the existing PGSTAR plot window.
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="author">Author: Josiah Schwab and Will Schultz</p>
+<p class="author">Author: Josiah Schwab, Will Schultz, Rob Farmer</p>
 <p class="date">Created: 2021-08-09 Mon 07:12</p>
 <p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

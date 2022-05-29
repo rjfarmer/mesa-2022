@@ -1,11 +1,11 @@
-! MESA Summer School 2021: Lecture 1
+! SMNA 2022: Introduction to MESA
 
 &star_job
   ! see star/defaults/star_job.defaults
 
   ! begin with a pre-built model
   load_saved_model = .true.
-  saved_model_name = '1M_at_1Rsun.mod'
+  load_model_filename = '1M_at_1Rsun.mod'
 
   ! reset initial model number
   ! (leave the initial age along)
@@ -45,9 +45,6 @@
   ! (unused since loading a saved model)
   initial_mass = 1.0 ! in Msun units
   initial_z = 0.02 ! solar(-ish) metallicity
-
-  ! options for energy conservation (see MESA V, Section 3)
-  use_dedt_form_of_energy_eqn = .true.
 
   ! stop when the center mass fraction of h1 drops below this limit
   xa_central_lower_limit_species(1) = 'h1'
